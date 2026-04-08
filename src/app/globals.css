@@ -164,7 +164,11 @@ html {
   50% { transform: scale(1.08); }
 }
 
-/* Custom cursor is purely an overlay — default cursor stays visible */
+/* Hide default cursor only when the swiper drag cursor is active */
+body.cursor-over-swiper,
+body.cursor-over-swiper * {
+  cursor: none !important;
+}
 
 /* Stroke text effect — clean outline matching WP theme */
 .stroke-text {

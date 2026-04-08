@@ -43,10 +43,13 @@ export default function CustomCursor() {
 
       if (isLink) {
         setCursorState("link");
+        document.body.classList.remove("cursor-over-swiper");
       } else if (isSwiper) {
         setCursorState("swiper");
+        document.body.classList.add("cursor-over-swiper");
       } else {
         setCursorState("default");
+        document.body.classList.remove("cursor-over-swiper");
       }
     };
 
@@ -71,6 +74,7 @@ export default function CustomCursor() {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseover", onMouseOver);
       cancelAnimationFrame(animId);
+      document.body.classList.remove("cursor-over-swiper");
     };
   }, []);
 
