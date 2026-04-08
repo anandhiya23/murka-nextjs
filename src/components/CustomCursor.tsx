@@ -67,14 +67,10 @@ export default function CustomCursor() {
     };
     animId = requestAnimationFrame(animate);
 
-    // Add class to body to hide default cursor
-    document.body.classList.add("has-custom-cursor");
-
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseover", onMouseOver);
       cancelAnimationFrame(animId);
-      document.body.classList.remove("has-custom-cursor");
     };
   }, []);
 

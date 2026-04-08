@@ -164,13 +164,7 @@ html {
   50% { transform: scale(1.08); }
 }
 
-/* Custom cursor — hide default on desktop */
-@media (min-width: 1025px) {
-  body.has-custom-cursor,
-  body.has-custom-cursor * {
-    cursor: none !important;
-  }
-}
+/* Custom cursor is purely an overlay — default cursor stays visible */
 
 /* Stroke text effect — clean outline matching WP theme */
 .stroke-text {
