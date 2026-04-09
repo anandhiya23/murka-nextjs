@@ -23,15 +23,7 @@ export default function TextReveal({
 
     const words = el.querySelectorAll<HTMLSpanElement>(".tra-word");
 
-    let isMaxDevice = window.innerWidth >= 1025;
-
     const updateOpacities = () => {
-      if (!isMaxDevice) {
-        // On mobile/tablet, just show all words
-        words.forEach((w) => (w.style.opacity = "1"));
-        return;
-      }
-
       const rect = el.getBoundingClientRect();
       const inViewport =
         rect.top < window.innerHeight &&
@@ -41,7 +33,6 @@ export default function TextReveal({
 
       if (!inViewport) {
         if (rect.bottom < 0) {
-          // Already scrolled past — show all
           el.style.opacity = "1";
           words.forEach((w) => (w.style.opacity = "1"));
         }
@@ -60,7 +51,6 @@ export default function TextReveal({
       });
     };
 
-    // Use requestAnimationFrame-based scroll handler
     let ticking = false;
     const onScroll = () => {
       if (!ticking) {
@@ -72,23 +62,14 @@ export default function TextReveal({
       }
     };
 
-    const onResize = () => {
-      isMaxDevice = window.innerWidth >= 1025;
-    };
-
     window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onResize, { passive: true });
-
-    // Initial run
     updateOpacities();
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onResize);
     };
   }, []);
 
-  // Split text into words
   const words = text.split(" ");
 
   return (
