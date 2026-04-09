@@ -1,16 +1,13 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 interface ScrollOpacityProps {
   children: React.ReactNode;
   className?: string;
-  /** Scroll range start (0-1) where opacity begins changing */
   start?: number;
-  /** Scroll range end (0-1) where opacity stops changing */
   end?: number;
-  /** Direction: "out-in" = fades in as scrolled into view, "in-out" = opposite */
   direction?: "out-in" | "in-out" | "out-in-out";
 }
 
@@ -27,21 +24,16 @@ export default function ScrollOpacity({
     offset: ["start end", "end start"],
   });
 
-  let opacity;
-  if (direction === "out-in") {
-    // Starts dim, gets brighter as you scroll through
-    opacity = useTransform(scrollYProgress, [start, end], [0.1, 1]);
-  } else if (direction === "in-out") {
-    opacity = useTransform(scrollYProgress, [start, end], [1, 0.1]);
-  } else {
-    // out-in-out: dim → bright → dim
-    const mid = (start + end) / 2;
-    opacity = useTransform(
-      scrollYProgress,
-      [start, mid, end],
-      [0.1, 1, 0.1]
-    );
-  }
+  const { input, output } = useMemo(() => {
+    if (direction === "in-out") return { input: [start, end], output: [1, 0.1] };
+    if (direction === "out-in-out") {
+      const mid = (start + end) / 2;
+      return { input: [start, mid, end], output: [0.1, 1, 0.1] };
+    }
+    return { input: [start, end], output: [0.1, 1] };
+  }, [start, end, direction]);
+
+  const opacity = useTransform(scrollYProgress, input, output);
 
   return (
     <motion.div ref={ref} className={className} style={{ opacity }}>

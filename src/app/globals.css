@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/pagination";
 
 :root {
   --background: #E9E9E7;
@@ -6,15 +8,10 @@
   --accent-1: #242627;
   --accent-2: #E9E9E7;
   --accent-3: #5F6567;
-  --accent-5: #FFFFFF;
   --accent-6: #000000;
   --accent-7: #00000026;
-  --accent-8: #FFFFFF33;
   --muted: #5F6567;
   --lime: #C1EF1C;
-  --card-bg: #F3F5F2;
-  --warm-beige: #F3EDE3;
-  --border: #DEDEDE;
   --site-max-width: 2000px;
 }
 
@@ -22,13 +19,12 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
-  --color-accent: var(--accent-6);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-accent-6: var(--accent-6);
   --color-lime: var(--lime);
-  --color-card-bg: var(--card-bg);
-  --color-warm-beige: var(--warm-beige);
-  --color-border: var(--border);
   --font-sans: var(--font-plus-jakarta);
-  --font-heading: var(--font-bebas-neue);
 }
 
 * {
@@ -112,39 +108,6 @@ html {
 ::selection {
   background: var(--foreground);
   color: var(--background);
-}
-
-/* Swirl animation for animated headline */
-@keyframes swirl-in {
-  0% {
-    opacity: 0;
-    transform: rotateX(-90deg) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: rotateX(0deg) scale(1);
-  }
-}
-
-@keyframes swirl-out {
-  0% {
-    opacity: 1;
-    transform: rotateX(0deg) scale(1);
-  }
-  100% {
-    opacity: 0;
-    transform: rotateX(90deg) scale(0.8);
-  }
-}
-
-/* Logo carousel animation */
-@keyframes scroll-logos {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-scroll-logos {
-  animation: scroll-logos 30s linear infinite;
 }
 
 /* Swiper overrides */

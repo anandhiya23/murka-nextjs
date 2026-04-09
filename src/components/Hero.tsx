@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const rotatingWords = ["Design", "Strategy", "Experience", "Stories"];
@@ -64,8 +64,7 @@ export default function Hero() {
     setActiveIndex((prev) => (prev + 1) % rotatingWords.length);
   }, []);
 
-  // Measure the active word width after each change
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (measRef.current) {
       setWordWidth(measRef.current.scrollWidth);
     }
