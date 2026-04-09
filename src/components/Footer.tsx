@@ -48,7 +48,7 @@ export default function Footer() {
       </div>
 
       {/* Sticky bottom nav — Agency Work Services Contact spread across */}
-      <div className="sticky bottom-0 hidden border-t border-[var(--accent-7)] bg-[var(--background)] px-8 py-4 md:flex md:px-12 lg:px-16">
+      <div className="border-t border-[var(--accent-7)] bg-[var(--background)] px-8 py-4 md:sticky md:bottom-0 md:px-12 lg:px-16">
         <div className="mx-auto flex max-w-[var(--site-max-width)] items-center justify-between">
           {[
             { label: "Agency", href: "/about" },
