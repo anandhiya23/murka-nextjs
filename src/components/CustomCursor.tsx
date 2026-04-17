@@ -20,8 +20,12 @@ export default function CustomCursor() {
       return;
     }
 
-    // Track mouse position
+    // Track mouse position — pointermove fires even during pointer capture (Swiper drag)
     const onMouseMove = (e: MouseEvent) => {
+      mousePos.current.x = e.clientX;
+      mousePos.current.y = e.clientY;
+    };
+    const onPointerMove = (e: PointerEvent) => {
       mousePos.current.x = e.clientX;
       mousePos.current.y = e.clientY;
     };
@@ -54,6 +58,7 @@ export default function CustomCursor() {
     };
 
     document.addEventListener("mousemove", onMouseMove, { passive: true });
+    document.addEventListener("pointermove", onPointerMove, { passive: true });
     document.addEventListener("mouseover", onMouseOver, { passive: true });
 
     // Animation loop — lag follow with division by 6
@@ -72,6 +77,7 @@ export default function CustomCursor() {
 
     return () => {
       document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("pointermove", onPointerMove);
       document.removeEventListener("mouseover", onMouseOver);
       cancelAnimationFrame(animId);
       document.body.classList.remove("cursor-over-swiper");

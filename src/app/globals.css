@@ -40,52 +40,54 @@ body {
 }
 
 /* Typography matching WP exactly */
-h1 {
-  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
-  font-weight: 300;
-  font-size: clamp(70px, 3vw, 90px);
-  line-height: 1.2em;
-  text-transform: none;
-}
+@layer base {
+  h1 {
+    font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+    font-weight: 300;
+    font-size: clamp(70px, 3vw, 90px);
+    line-height: 1.2em;
+    text-transform: none;
+  }
 
-h2 {
-  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
-  font-weight: 300;
-  font-size: clamp(42px, 1.9vw, 60px);
-  line-height: 1.3em;
-  text-transform: none;
-}
+  h2 {
+    font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+    font-weight: 300;
+    font-size: clamp(42px, 1.9vw, 60px);
+    line-height: 1.3em;
+    text-transform: none;
+  }
 
-h3 {
-  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
-  font-weight: 300;
-  font-size: clamp(32px, 1.5vw, 50px);
-  line-height: 1.3em;
-  text-transform: none;
-}
+  h3 {
+    font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+    font-weight: 300;
+    font-size: clamp(32px, 1.5vw, 50px);
+    line-height: 1.3em;
+    text-transform: none;
+  }
 
-h4 {
-  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
-  font-weight: 300;
-  font-size: clamp(24px, 1.1vw, 40px);
-  line-height: 1.4em;
-  text-transform: none;
-}
+  h4 {
+    font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+    font-weight: 300;
+    font-size: clamp(24px, 1.1vw, 40px);
+    line-height: 1.4em;
+    text-transform: none;
+  }
 
-h5 {
-  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
-  font-weight: 300;
-  font-size: clamp(20px, 0.9vw, 28px);
-  line-height: 1.3em;
-  text-transform: none;
-}
+  h5 {
+    font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+    font-weight: 300;
+    font-size: clamp(20px, 0.9vw, 28px);
+    line-height: 1.3em;
+    text-transform: none;
+  }
 
-h6 {
-  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
-  font-weight: 300;
-  font-size: clamp(16px, 0.8vw, 22px);
-  line-height: 1.2em;
-  text-transform: none;
+  h6 {
+    font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif);
+    font-weight: 300;
+    font-size: clamp(16px, 0.8vw, 22px);
+    line-height: 1.2em;
+    text-transform: none;
+  }
 }
 
 html {
