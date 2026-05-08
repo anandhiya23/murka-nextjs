@@ -37,8 +37,10 @@ export default function Header() {
 
       <button
         onClick={() => setMenuOpen(!menuOpen)}
-        className="relative z-[130] flex h-10 w-10 flex-col items-center justify-center gap-1.5"
+        className="relative z-[130] flex h-10 w-10 flex-col items-center justify-center gap-1.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
         aria-label="Toggle menu"
+        aria-expanded={menuOpen}
+        aria-haspopup="dialog"
       >
         <span className={`block h-[1.5px] w-6 bg-white transition-all duration-300 ${menuOpen ? "translate-y-[7px] rotate-45" : ""}`} />
         <span className={`block h-[1.5px] w-6 bg-white transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
@@ -106,7 +108,7 @@ export default function Header() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.08 }}
-                  className="font-sans text-5xl font-light text-white transition-colors hover:text-[var(--lime)] md:text-7xl"
+                  className="font-sans text-5xl font-light text-white transition-colors hover:text-[var(--lime)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:text-7xl"
                 >
                   {link.label}
                 </motion.a>

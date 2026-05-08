@@ -21,9 +21,11 @@ export const metadata: Metadata = {
     siteName: "MURKA",
     type: "website",
     locale: "en_US",
+    images: [{ url: "https://murka.id/images/hero/hero-1.png", width: 1200, height: 630, alt: "MURKA Creative Agency" }],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["https://murka.id/images/hero/hero-1.png"],
   },
 };
 

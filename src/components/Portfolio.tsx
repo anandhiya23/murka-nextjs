@@ -4,46 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-
-
-const projects = [
-  {
-    title: "Pesta Kita",
-    tags: [
-      "Campaign Strategy",
-      "Community Engagement",
-      "Event Experience",
-      "Key Visual Design",
-    ],
-    image: "/images/portfolio/pesta-kita.jpg",
-    excerpt: "A movement where youth turned politics into culture.",
-  },
-  {
-    title: "Hari Menjadi Manusia 2025",
-    tags: [
-      "Branding Identity",
-      "Event Experience",
-      "Event Production",
-      "Logo",
-      "Social Media Design",
-    ],
-    image: "/images/portfolio/hmm-2025.png",
-    excerpt:
-      "A day to pause, breathe, and remember what it means to be human.",
-  },
-  {
-    title: "Relaunching Yayasan BUMN",
-    tags: [
-      "Branding Identity",
-      "Logo",
-      "Social Media",
-      "Strategic Communication",
-    ],
-    image: "/images/portfolio/yayasan-bumn.png",
-    excerpt:
-      "A new era of social impact for Indonesia\u2019s state-owned enterprises.",
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function Portfolio() {
   return (
@@ -62,17 +23,19 @@ export default function Portfolio() {
           }}
           className="portfolio-swiper !pb-12"
         >
-          {projects.map((project) => (
+          {projects.map((project, i) => (
             <SwiperSlide key={project.title} className="!h-auto">
               <div
                 className="group relative flex min-h-[70vw] cursor-pointer flex-col justify-between overflow-hidden md:ml-[30px] md:min-h-[35vw]"
-                style={{
-                  backgroundImage: `url(${project.image})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundColor: "var(--accent-6)",
-                }}
+                style={{ backgroundColor: "var(--accent-6)" }}
               >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-center"
+                  priority={i === 0}
+                />
                 {/* Top: gradient + tags + arrow */}
                 <div
                   className="relative z-10 flex items-start justify-between p-5 md:p-[clamp(20px,1vw,40px)]"

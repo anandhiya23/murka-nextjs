@@ -8,20 +8,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import TextReveal from "@/components/TextReveal";
 import ScrollOpacity from "@/components/ScrollOpacity";
+import { clients } from "@/data/clients";
 
 const team = [
   { name: "Alvinaldy Fitrah", role: "Co-Founder & CEO", image: "/images/team/alvinaldy.png" },
   { name: "Dinno Ardiansyah", role: "Co-Founder & CSO", image: "/images/team/dinno.png" },
   { name: "Maharyudha Bobby", role: "Co-Founder & CBO", image: "/images/team/bobby.png" },
   { name: "Ayu Rahma Wulandari", role: "Creative Director", image: "/images/team/ayu.png" },
-];
-
-const clients = [
-  { name: "KBUMN", src: "/images/clients/kbumn.png" },
-  { name: "Infipop", src: "/images/clients/infipop.png" },
-  { name: "MM", src: "/images/clients/mm.png" },
-  { name: "MOM", src: "/images/clients/mom.png" },
-  { name: "PSSI", src: "/images/clients/pssi.png" },
 ];
 
 export default function AboutPage() {

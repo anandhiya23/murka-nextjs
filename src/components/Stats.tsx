@@ -3,19 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import ScrollOpacity from "./ScrollOpacity";
+import { clients } from "@/data/clients";
 
 const stats = [
   { value: "100+", label: "ideas turned into reality" },
   { value: "30+", label: "clients trusted MURKA" },
   { value: "\u221E", label: "cups of coffee and chaos" },
-];
-
-const clients = [
-  { name: "KBUMN", src: "/images/clients/kbumn.png" },
-  { name: "Infipop", src: "/images/clients/infipop.png" },
-  { name: "MM", src: "/images/clients/mm.png" },
-  { name: "MOM", src: "/images/clients/mom.png" },
-  { name: "PSSI", src: "/images/clients/pssi.png" },
 ];
 
 export default function Stats() {
@@ -25,15 +18,15 @@ export default function Stats() {
       style={{ backgroundColor: "var(--accent-6)" }}
     >
       {/* Halftone MURKA background image */}
-      <div
-        className="absolute inset-0 bg-no-repeat"
-        style={{
-          backgroundImage: "url(/images/hero/murka-halftone.png)",
-          backgroundPosition: "top center",
-          backgroundSize: "contain",
-          top: "65px",
-        }}
-      />
+      <div className="absolute inset-x-0 bottom-0" style={{ top: "65px" }}>
+        <Image
+          src="/images/hero/murka-halftone.png"
+          alt=""
+          fill
+          className="object-contain object-top"
+          aria-hidden
+        />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-[var(--site-max-width)]">
         {/* Intro text */}

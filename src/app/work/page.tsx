@@ -4,31 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-
-const projects = [
-  {
-    title: "Hari Menjadi Manusia 2025",
-    tags: ["Branding Identity", "Event Experience", "Event Production", "Logo", "Social Media Design"],
-    image: "/images/portfolio/hmm-2025.png",
-    excerpt: "A day to pause, breathe, and remember what it means to be human.",
-    href: "/work/hari-menjadi-manusia-2025",
-    featured: true,
-  },
-  {
-    title: "Relaunching Yayasan BUMN",
-    tags: ["Branding Identity", "Logo", "Social Media", "Strategic Communication"],
-    image: "/images/portfolio/yayasan-bumn.png",
-    excerpt: "A new era of social impact for Indonesia\u2019s state-owned enterprises.",
-    href: "/work/relaunching-yayasan-bumn",
-  },
-  {
-    title: "Pesta Kita",
-    tags: ["Campaign Strategy", "Community Engagement", "Event Experience", "Key Visual Design"],
-    image: "/images/portfolio/pesta-kita.jpg",
-    excerpt: "A movement where youth turned politics into culture.",
-    href: "/work/pesta-kita",
-  },
-];
+import { projects } from "@/data/projects";
 
 export default function WorkPage() {
   return (
@@ -55,13 +31,9 @@ export default function WorkPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="group relative mb-[30px] block min-h-[50vw] overflow-hidden md:min-h-[35vw]"
-            style={{
-              backgroundImage: `url(${projects[0].image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              backgroundColor: "var(--accent-6)",
-            }}
+            style={{ backgroundColor: "var(--accent-6)" }}
           >
+            <Image src={projects[0].image} alt={projects[0].title} fill className="object-cover object-center" priority />
             <div
               className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-6"
               style={{ background: "linear-gradient(180deg, #00000040 0%, #00000000 100%)" }}
@@ -95,13 +67,9 @@ export default function WorkPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.15 }}
                 className="group relative block min-h-[60vw] overflow-hidden md:min-h-[30vw]"
-                style={{
-                  backgroundImage: `url(${project.image})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                  backgroundColor: "var(--accent-6)",
-                }}
+                style={{ backgroundColor: "var(--accent-6)" }}
               >
+                <Image src={project.image} alt={project.title} fill className="object-cover object-center" />
                 <div
                   className="absolute inset-x-0 top-0 z-10 flex items-start justify-between p-5"
                   style={{ background: "linear-gradient(180deg, #00000040 0%, #00000000 100%)" }}
